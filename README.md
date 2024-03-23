@@ -1,1 +1,187 @@
-# party-time-job-deploy
+<div align='center'>
+  <img width='300px' src='public/logo.png' />
+  <h1 style='font-size: 50px'>Party Time Job</h1>
+</div>
+
+<br /><br />
+
+# ⭐️ 프로젝트 개요
+
+<img width='1200px' src='public/readme-1.png' />
+
+### 일자리가 급한 사람들을 위한 구인구직 서비스. 구인구직 과정을 파티처럼 즐겁고, 더욱 쉽게 만들고자 합니다.
+
+### 당신의 다음 파티는 어디에서 시작될까요? 지금 바로 시작해 보세요!
+
+<br /><br />
+
+# 👨‍👨‍👧‍👧 팀원 소개
+
+<table>
+    <tr align="center">
+        <td><img width="150" src="https://avatars.githubusercontent.com/u/150772344?v=4" /></td>
+        <td><img width="150" src="https://avatars.githubusercontent.com/u/85405709?v=4" /></td>
+        <td><img width="150" src="https://avatars.githubusercontent.com/u/135799803?v=4" /></td>
+        <td><img width="150" src="https://avatars.githubusercontent.com/u/122016324?v=4" /></td>
+    </tr>
+    <tr align="center">
+      <td><a href="https://github.com/DanteSnow">이치현</a></td>
+      <td><a href="https://github.com/siyeol97">이시열</a></td>
+      <td><a href="https://github.com/yunsunglee2">이윤성</a></td>
+      <td><a href="https://github.com/Crack-Egg">이재명</a></td>
+    </tr>
+    <tr align="center">
+      <td>팀장</td>
+      <td>팀원</td>
+      <td>팀원</td>
+      <td>팀원</td>
+    </tr>
+</table>
+
+<br /><br />
+
+# 📆 개발 기간
+
+### 2024.03.07 ~ 2024.03/25
+
+<img width='800px' src='https://github.com/Party-Time-Job/Party-Time-Job/assets/150772344/0f161b98-864b-437b-b9e1-3a3aafe6b978' />
+
+<br /><br />
+
+# 📚 기술 스택
+
+### 개발
+
+<div>
+  <img height='26px' src='https://img.shields.io/badge/nextjs14-000000?style=for-the-badge&logo=nextdotjs&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/react-3178C6?style=for-the-badge&logo=react&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white' />
+</div>
+
+<br />
+
+### 라이브러리
+
+<div>
+  <img height='26px' src='https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/recoil-3578E5?style=for-the-badge&logo=recoil&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/reacthookform-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white' />
+</div>
+
+<br />
+
+### 협업
+
+<div>
+  <img height='26px' src='https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/husky-E94E2D?style=for-the-badge&logo=styledcomponent&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white' />
+  <img height='26px' src='https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white' />
+  <img height='26px' src='' />
+</div>
+
+### 배포
+
+<img height='26px' src='https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=Vercel&logoColor=white' />
+
+<br /><br />
+
+# 📁 FSD(Feature-Sliced Design) 폴더 구조
+
+```bash
+src
+├── app
+│   └─ detail
+│   └─ notice
+│   └─ profile
+│       └── page.tsx
+├── pages
+│   └─ EmployerPage
+│       └── api
+│   └─ NoticePage
+│       └── api
+├── widgets
+│   └─ api
+│       └── getApplication.ts
+│   └─ Header
+│   └─ Footer
+├── features
+│   └─ AcceptModal
+│   └─ Filter
+│   └─ Sort
+├── entities
+│   └─ Post
+│       └── hooks
+│       └── utils
+├── shared
+│   └─ api
+│   └─ hooks
+│   └─ utils
+│   └─ ui
+│       └── Table
+│       └── Button
+└──     └── Input
+```
+
+<br /><br />
+
+# ⚙️ 주요 기능
+
+### 📄 랜딩페이지 및 로그인/회원가입 페이지
+
+(핵심 기능 작성)
+
+### 📄 일반회원 페이지
+
+(핵심 기능 작성)
+
+### 📄 사장님 페이지
+
+(핵심 기능 작성)
+
+### 📄 공고 페이지
+
+(핵심 기능 작성)
+
+<br /><br />
+
+# ⏏️ 추가 기능 구현
+
+(추가 기능 구현한 것 중 몇가지 필요한 기능들만 작성)
+
+<br /><br />
+
+# 문제점 및 해결방법? 코어타임? 소통?
+
+(이 부분은 필요하면 넣고 필요없으면 빼도록 하겠습니다!)
+
+<br /><br />
+
+# 💻 설치 방법
+
+### 1. 프로젝트 설치
+
+```bash
+git clone https://github.com/Party-Time-Job/Party-Time-Job.git
+```
+
+### 2. 패키지 설치
+
+```bash
+npm install
+```
+
+### 3. 실행
+
+```bash
+npm run dev
+```
+
+<br /><br />
+
+# QnA
+
+(QnA 이미지 파일)
