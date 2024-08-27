@@ -9,8 +9,18 @@ import Button from '@/shared/ui/Button';
 import Input from '@/shared/ui/Input';
 import { Item } from '@/app/shop/registration/recruitment/[id]/model/Type';
 import Text from '@/shared/ui/Text';
+import formatDate from '@/entities/Post/utils/formatDate';
+import formatDateTime from '@/entities/Post/utils/formatDateTime';
 
 const baseUrl = 'https://bootcamp-api.codeit.kr/api/3-2/the-julge';
+const MINIMUM_WAGE = 9860;
+const LIMIT_WAGE = 1000000000;
+const TODAY = new Date();
+const NOW = formatDateTime(TODAY.toISOString());
+
+interface ErrorResponse {
+  message: string;
+}
 
 const CreateRecruitment = ({
   noticeData,
@@ -29,7 +39,7 @@ const CreateRecruitment = ({
   } = useForm({
     defaultValues: {
       ...noticeData,
-      startsAt: new Date(noticeData.startsAt).toISOString(),
+      startsAt: formatDate(noticeData.startsAt),
     },
   });
   const router = useRouter();
@@ -54,13 +64,21 @@ const CreateRecruitment = ({
           startsAt: new Date(startsAt).toISOString(),
         }),
       });
-      if (response.status === 200) {
+
+      if (response.ok) {
         router.push(`/shop/details/${shopId}`);
+      } else {
+        const errorResponse = (await response.json()) as ErrorResponse;
+        throw new Error(errorResponse.message || '예상치 못한 오류 발생');
       }
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) {
+        // eslint-disable-next-line no-alert
+        alert(error.message);
+      }
     }
   };
+
   return (
     <div className='flex h-screen w-full items-center justify-center'>
       <div className='flex flex-col gap-10 rounded-lg border p-10'>
@@ -95,6 +113,14 @@ const CreateRecruitment = ({
                 id='hourlyPay'
                 {...register('hourlyPay', {
                   required: '시급을 입력해주세요.',
+                  validate: {
+                    minimumValidate: value =>
+                      Number(value) > MINIMUM_WAGE ||
+                      '시급은 최저시급 이상이어야 합니다.',
+                    limitValidate: value =>
+                      Number(value) < LIMIT_WAGE ||
+                      '시급은 1000000000원을 넘을 수 없습니다.',
+                  },
                 })}
               />
               {errors.hourlyPay && (
@@ -113,6 +139,11 @@ const CreateRecruitment = ({
                 placeholder='입력'
                 {...register('startsAt', {
                   required: '시작일시를 입력해주세요',
+                  validate: {
+                    timeCheck: value =>
+                      new Date(value) >= new Date(formatDate(NOW)) ||
+                      '오늘 이후 날짜로 등록해주세요.',
+                  },
                 })}
               />
               {errors.startsAt && (
@@ -123,14 +154,19 @@ const CreateRecruitment = ({
             </div>
             <div className='relative flex flex-col gap-2'>
               <label htmlFor='workhour' className='leading-[26px] text-white'>
-                업무 시간
+                근무 시간
               </label>
               <Input
                 id='workhour'
                 type='number'
                 placeholder='입력'
                 {...register('workhour', {
-                  required: '업무시간을 입력해주세요',
+                  required: '근무시간을 입력해주세요',
+                  validate: {
+                    workHour: value =>
+                      (Number(value) >= 1 && Number(value) <= 24) ||
+                      '근무시간은 1시간 이상 24시간 이하로 작성해주세요.',
+                  },
                 })}
               />
               {errors.workhour && (
